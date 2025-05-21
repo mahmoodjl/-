@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اینفوگرافیک فونساژ: تحلیل بازار و برند</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #FFF9F0; /* Very Light Creamy Orange */
+            color: #4A4A4A; /* Dark Grey */
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px; /* Base height */
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .section-title {
+            color: #FF6B6B; /* Coral Red */
+            border-bottom: 2px solid #FFD166; /* Mustard Yellow */
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .card {
+            background-color: #FFFFFF; /* White */
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .flowchart-step {
+            background-color: #118AB2; /* Cerulean Blue */
+            color: white;
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.375rem;
+            text-align: center;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .flowchart-arrow {
+            font-size: 2rem;
+            color: #118AB2; /* Cerulean Blue */
+            margin: 0 0.5rem;
+            align-self: center;
+        }
+        .matrix-cell {
+            border: 1px solid #FFD166; /* Mustard Yellow */
+            padding: 1rem;
+            text-align: center;
+            min-height: 120px; /* Increased height for more content */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .matrix-header {
+            font-weight: bold;
+            color: #118AB2; /* Cerulean Blue */
+        }
+        .highlight-brand {
+            color: #FF6B6B; /* Coral Red */
+            font-weight: bold;
+        }
+        .mission-vision-text {
+            background-color: #FFF9F0;
+            padding: 1rem;
+            border-radius: 0.375rem;
+            border-left: 5px solid #06D6A0; /* Teal Accent */
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-[#FF6B6B] text-white py-12 text-center">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">فونساژ: نوآوری در شیرینی‌پزی یزد</h1>
+            <p class="text-xl md:text-2xl">تجربه‌ای از "حال خوب" در قلب شهر تاریخی</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+
+        <section id="market-overview" class="mb-12">
+            <div class="card">
+                <h2 class="text-3xl font-bold section-title">بازار شیرینی یزد: سنت، نوآوری و رقابت</h2>
+                <p class="mb-6 text-lg leading-relaxed">بازار شیرینی یزد، با حضور قدرتمند شیرینی‌فروشی‌های سنتی و ریشه‌دار مانند "حاج خلیفه علی رهبر"، بازاری پویا و در عین حال چالش‌برانگیز است. در کنار این رقبای غیرمستقیم که بر شیرینی‌های اصیل یزدی تمرکز دارند، فونساژ با رقبای مستقیمی مانند بوتیک‌های شیرینی فرانسوی "لامور" و "اپرا" نیز مواجه است که تجربه‌های مدرن‌تری ارائه می‌دهند. فونساژ با ارائه تلفیقی از هنر فرانسوی و طعم‌های ارتقا یافته ایرانی، به دنبال ایجاد جایگاهی منحصر به فرد است.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-3 text-[#118AB2]">سهم بازار (برداشت کلی)</h3>
+                        <p class="mb-4">درحالی‌که شیرینی‌های سنتی بخش غالب بازار را تشکیل می‌دهند، فضای رو به رشدی برای محصولات خاص و باکیفیت مانند فونساژ وجود دارد که می‌تواند مشتریان خاص‌پسند و نوگرا را جذب کند.</p>
+                        <ul class="list-disc list-inside space-y-2 text-md">
+                            <li><span class="font-semibold">شیرینی‌های سنتی (رقبای غیرمستقیم):</span> بازیگران اصلی با پایگاه مشتری وفادار.</li>
+                            <li><span class="font-semibold">بوتیک‌های فرانسوی (رقبای مستقیم):</span> تمرکز بر تجربه لوکس و مدرن.</li>
+                            <li><span class="font-semibold highlight-brand">فونساژ (نیش مارکت بالقوه):</span> تلفیق کیفیت ممتاز، نوآوری و تجربه متفاوت.</li>
+                        </ul>
+                    </div>
+                    <div class="chart-container mx-auto">
+                        <canvas id="marketShareChart"></canvas>
+                    </div>
+                </div>
+                <p class="mt-6 text-sm italic">این نمودار یک نمایش مفهومی از تسلط شیرینی‌های سنتی و جایگاه بالقوه فونساژ در کنار رقبای مستقیم و غیرمستقیم است، نه یک داده آماری دقیق از سهم بازار.</p>
+            </div>
+        </section>
+
+        <section id="foncage-intro" class="mb-12">
+            <div class="card">
+                <h2 class="text-3xl font-bold section-title">معرفی فونساژ: پلی میان سنت و مدرنیته</h2>
+                <p class="mb-6 text-lg leading-relaxed">فونساژ یک کارگاه شیرینی‌پزی فرانسوی در یزد است که با تمرکز بر شیر برنج و کیک‌های روز با رویکردی متفاوت و کیفیتی ارتقا یافته، تجربه‌ای نوین ارائه می‌دهد. هدف فونساژ، خلق "حال خوب" برای مشتریان از طریق محصولات هنرمندانه و فضایی دلنشین است.</p>
+                <div class="text-center mb-8">
+                    <p class="text-2xl font-semibold text-[#06D6A0]">جوهره برند فونساژ: <span class="highlight-brand">"حال خوب"</span></p>
+                    <p class="text-md">فراتر از طعم، احساسی که فونساژ برمی‌انگیزد.</p>
+                </div>
+                 <h3 class="text-2xl font-semibold mb-4 text-[#118AB2]">وعده برند فونساژ:</h3>
+                <p class="mb-6 mission-vision-text text-md">"فونساژ لحظه‌ای ناب از شادی و آرامش را، از طریق شیرینی‌های فرانسوی با دقت بالا و دسرهای سنتی ارتقا یافته، وعده می‌دهد و تضمین می‌کند که هر لقمه‌ای حس خوبی را به ارمغان می‌آورد."</p>
+                <h3 class="text-2xl font-semibold mb-4 text-[#118AB2]">ویژگی‌های کلیدی برند فونساژ:</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="bg-[#FFF9F0] p-4 rounded-lg shadow"> <p><span class="font-bold text-[#FF6B6B]">هنرمندی ماهرانه:</span> کیفیت دست‌ساز و توجه به جزئیات.</p></div>
+                    <div class="bg-[#FFF9F0] p-4 rounded-lg shadow"> <p><span class="font-bold text-[#FF6B6B]">ظرافت و پیچیدگی:</span> زیبایی‌شناسی پالایش‌یافته فرانسوی.</p></div>
+                    <div class="bg-[#FFF9F0] p-4 rounded-lg shadow"> <p><span class="font-bold text-[#FF6B6B]">آرامش‌بخش و پرورنده:</span> حمایت از جوهره "حال خوب".</p></div>
+                    <div class="bg-[#FFF9F0] p-4 rounded-lg shadow"> <p><span class="font-bold text-[#FF6B6B]">نوآورانه (تلفیقی):</span> ترکیب هنر فرانسوی با طعم‌های ایرانی.</p></div>
+                    <div class="bg-[#FFF9F0] p-4 rounded-lg shadow"> <p><span class="font-bold text-[#FF6B6B]">کیفیت‌محور:</span> تعهد به بهترین و تازه‌ترین مواد اولیه.</p></div>
+                    <div class="bg-[#FFF9F0] p-4 rounded-lg shadow"> <p><span class="font-bold text-[#FF6B6B]">اصالت:</span> حفظ یکپارچگی سنت‌های آشپزی و مهمان‌نوازی.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mission-vision" class="mb-12">
+            <div class="card">
+                <h2 class="text-3xl font-bold section-title">ماموریت و چشم‌انداز فونساژ</h2>
+                <p class="mb-6 text-lg leading-relaxed">ماموریت و چشم‌انداز فونساژ، راهنمای حرکت این برند در مسیر خلق تجربه‌های منحصر به فرد و دستیابی به جایگاهی ممتاز در بازار شیرینی یزد است.</p>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-3 text-[#118AB2]">ماموریت فونساژ:</h3>
+                    <p class="mission-vision-text text-md leading-relaxed">"خلق و ارائه تجربه‌های شیرین و به‌یادماندنی که 'حال خوب' را به ارمغان می‌آورد، از طریق تلفیق هنرمندانه شیرینی‌های اصیل فرانسوی و دسرهای سنتی ایرانی ارتقا یافته، با تمرکز بر کیفیت بی‌نظیر، نوآوری و مهمان‌نوازی گرم، برای مشتریان مشکل‌پسند در شهر یزد."</p>
+                </div>
+                <div class="mt-6">
+                    <h3 class="text-2xl font-semibold mb-3 text-[#118AB2]">چشم‌انداز فونساژ:</h3>
+                    <p class="mission-vision-text text-md leading-relaxed">"تبدیل شدن به پیشروترین و محبوب‌ترین مقصد برای شیرینی‌های ممتاز و نوآورانه در یزد، که به دلیل ترکیب بی‌نظیر ظرافت فرانسوی و آرامش ایرانی، و تعهد به خلق لحظات شادی و آرامش برای هر مشتری، شناخته شده است."</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="market-positioning" class="mb-12">
+            <div class="card">
+                <h2 class="text-3xl font-bold section-title">جایگاه فونساژ در بازار شیرینی یزد</h2>
+                <p class="mb-6 text-lg leading-relaxed">فونساژ با ارائه محصولات فرانسوی و سنتی ارتقا یافته، خود را در بخش "کیفیت ممتاز / قیمت بالا" بازار قرار می‌دهد. این جایگاه‌گیری، فونساژ را از رقبای غیرمستقیم سنتی و در کنار رقبای مستقیم مدرن خود متمایز می‌کند.</p>
+                <div class="overflow-x-auto">
+                    <div class="grid grid-cols-3 gap-0 border border-[#FFD166]">
+                        <div class="matrix-cell"></div>
+                        <div class="matrix-cell matrix-header">کیفیت متوسط/استاندارد</div>
+                        <div class="matrix-cell matrix-header">کیفیت بالا/ممتاز</div>
+
+                        <div class="matrix-cell matrix-header">قیمت متوسط</div>
+                        <div class="matrix-cell">
+                            <p class="font-semibold">سایر قنادی‌های محلی</p>
+                            <p class="text-sm">(محصولات متنوع سنتی/کیک روز)</p>
+                        </div>
+                        <div class="matrix-cell">
+                             <p class="font-semibold">شیرینی بهشت یزد / شادکام</p>
+                             <p class="text-sm">(شیرینی سنتی یزدی)</p>
+                        </div>
+
+                        <div class="matrix-cell matrix-header">قیمت بالا</div>
+                        <div class="matrix-cell">
+                            {/* Potentially some niche traditional if any, but mostly empty for French quality */}
+                        </div>
+                        <div class="matrix-cell bg-[#FFF9F0]">
+                            <p class="font-semibold highlight-brand">فونساژ</p>
+                            <p class="text-sm">(فرانسوی و سنتی ارتقا یافته)</p>
+                            <hr class="my-2 border-gray-300 w-1/2 mx-auto">
+                            <p class="font-semibold">بوتیک شیرینی لامور</p>
+                            <p class="text-sm">(شیرینی اصیل فرانسوی - رقیب مستقیم)</p>
+                            <hr class="my-2 border-gray-300 w-1/2 mx-auto">
+                            <p class="font-semibold">کافه شیرینی اپرا</p>
+                            <p class="text-sm">(شیرینی اصیل فرانسوی - رقیب مستقیم)</p>
+                             <hr class="my-2 border-gray-300 w-1/2 mx-auto">
+                            <p class="font-semibold">حاج خلیفه علی رهبر</p>
+                            <p class="text-sm">(شیرینی سنتی یزدی - اصالت - رقیب غیرمستقیم)</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-6 text-sm italic">ماتریس فوق جایگاه نسبی برندها را بر اساس کیفیت و قیمت درک شده، با در نظر گرفتن رقبای مستقیم و غیرمستقیم، نشان می‌دهد.</p>
+            </div>
+        </section>
+
+        <section id="brand-personality" class="mb-12">
+            <div class="card">
+                <h2 class="text-3xl font-bold section-title">شخصیت برند فونساژ</h2>
+                <p class="mb-6 text-lg leading-relaxed">شخصیت فونساژ از طریق آرکتایپ‌ها و لحن برند آن تعریف می‌شود، که به ایجاد ارتباط عمیق‌تر با مشتریان کمک می‌کند.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-3 text-[#118AB2]">آرکتایپ‌های برند:</h3>
+                        <div class="space-y-3">
+                            <p><span class="text-xl font-bold text-[#EF476F]">❤️ عاشق (مرکزی):</span> تمرکز بر صمیمیت، لذت حسی و تجربه زیبایی. این آرکتایپ با جوهره "حال خوب" و لذت شیرینی‌ها همسو است.</p>
+                            <p><span class="text-xl font-bold text-[#06D6A0]">🎨 خالق (تأثیرگذار):</span> تأکید بر نوآوری، هنرمندی و خلق چیزی با ارزش و منحصر به فرد. این آرکتایپ از کیفیت و رویکرد تلفیقی فونساژ حمایت می‌کند.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-3 text-[#118AB2]">لحن برند:</h3>
+                        <ul class="list-disc list-inside space-y-2 text-md">
+                            <li><span class="font-semibold">ظریف و پالایش‌یافته:</span> بازتاب نفوذ فرانسوی.</li>
+                            <li><span class="font-semibold">گرم و دعوت‌کننده:</span> همسو با "حال خوب" و مهمان‌نوازی.</li>
+                            <li><span class="font-semibold">پرشور و مشتاق:</span> انتقال عشق به هنر شیرینی‌پزی.</li>
+                            <li><span class="font-semibold">هنرمندانه و آگاه:</span> برجسته‌سازی تخصص و مهارت.</li>
+                            <li><span class="font-semibold">کمی شوخ‌طبع/دلپذیر:</span> برای تأکید بر شادی و لذت.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="uvp" class="mb-12">
+            <div class="card">
+                <h2 class="text-3xl font-bold section-title">ارزش پیشنهادی منحصر به فرد فونساژ</h2>
+                <p class="mb-6 text-lg leading-relaxed">ارزش اصلی فونساژ در ترکیب هنرمندانه شیرینی‌های فرانسوی با کیفیت و آشنایی دلپذیر دسرهای سنتی ایرانی ارتقا یافته (مانند شیر برنج) نهفته است. این رویکرد، هم نوآوری و هم آرامش را به ارمغان می‌آورد و فونساژ را از رقبای مستقیم (صرفاً فرانسوی) و غیرمستقیم (صرفاً سنتی) متمایز می‌کند.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                         <h3 class="text-2xl font-semibold mb-3 text-[#118AB2]">مقایسه محصولات ارائه شده</h3>
+                         <p class="mb-4">فونساژ با ارائه طیف محصولات تلفیقی، خود را از سایر فعالان بازار متمایز می‌کند.</p>
+                         <ul class="list-disc list-inside space-y-2 text-md">
+                            <li><span class="font-semibold text-[#FF6B6B]">فونساژ:</span> شیرینی‌های اصیل فرانسوی، شیر برنج گرمه، کیک‌های روز خلاقانه (تلفیقی).</li>
+                            <li><span class="font-semibold">رقبای مستقیم (لامور/اپرا):</span> تمرکز بر شیرینی‌های کلاسیک فرانسوی.</li>
+                            <li><span class="font-semibold">رقبای غیرمستقیم (سنتی):</span> تمرکز بر باقلوا، قطاب، پشمک، کیک یزدی.</li>
+                        </ul>
+                    </div>
+                    <div class="chart-container mx-auto">
+                        <canvas id="productOfferingsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <section id="target-audience" class="mb-12">
+            <div class="card">
+                <h2 class="text-3xl font-bold section-title">مخاطب هدف فونساژ</h2>
+                <p class="mb-6 text-lg leading-relaxed">فونساژ مشتریانی را هدف قرار می‌دهد که به دنبال تجربه‌های جدید، کیفیت ممتاز و نوآوری در کنار احترام به سنت هستند.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                    <div class="bg-[#FFF9F0] p-4 rounded-lg shadow">
+                        <p class="text-4xl mb-2">🧐</p>
+                        <h4 class="font-semibold text-lg text-[#118AB2]">مشتریان مشکل‌پسند</h4>
+                        <p class="text-sm">قدردان کیفیت و جزئیات.</p>
+                    </div>
+                    <div class="bg-[#FFF9F0] p-4 rounded-lg shadow">
+                        <p class="text-4xl mb-2">🧑‍🎓</p>
+                        <h4 class="font-semibold text-lg text-[#118AB2]">نسل جوان‌تر</h4>
+                        <p class="text-sm">پذیرای تجربه‌های جدید و مدرن.</p>
+                    </div>
+                    <div class="bg-[#FFF9F0] p-4 rounded-lg shadow">
+                        <p class="text-4xl mb-2">✈️</p>
+                        <h4 class="font-semibold text-lg text-[#118AB2]">گردشگران</h4>
+                        <p class="text-sm">به دنبال تجربه‌ای محلی منحصر به فرد.</p>
+                    </div>
+                    <div class="bg-[#FFF9F0] p-4 rounded-lg shadow">
+                        <p class="text-4xl mb-2">💖</p>
+                        <h4 class="font-semibold text-lg text-[#118AB2]">علاقه‌مندان به نوآوری</h4>
+                        <p class="text-sm">قدردان ترکیب سنت و مدرنیته.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="branding-steps" class="mb-12">
+            <div class="card">
+                <h2 class="text-3xl font-bold section-title">چشم‌انداز آینده: ۷ گام برندسازی دکتر فرزاد مقدم</h2>
+                <p class="mb-6 text-lg leading-relaxed">موفقیت بلندمدت فونساژ بر اساس یک استراتژی برندسازی جامع و اجرای مداوم آن، مطابق با مدل هفت گام برندسازی دکتر فرزاد مقدم، بنا خواهد شد. این گام‌ها نقشه راهی برای رشد و پایداری برند فراهم می‌کنند.</p>
+                <div class="flex flex-col md:flex-row justify-around items-stretch space-y-4 md:space-y-0 md:space-x-2 rtl:md:space-x-reverse">
+                    <div class="flowchart-step flex-1">۱. تعریف برند (هویت)</div>
+                    <div class="flowchart-arrow hidden md:block">&rarr;</div>
+                    <div class="flowchart-step flex-1">۲. محصول و قیمت‌گذاری</div>
+                    <div class="flowchart-arrow hidden md:block">&rarr;</div>
+                    <div class="flowchart-step flex-1">۳. ارتباطات یکپارچه</div>
+                </div>
+                <div class="flex justify-center my-2 md:hidden"><span class="flowchart-arrow">&darr;</span></div>
+                 <div class="flex flex-col md:flex-row justify-around items-stretch space-y-4 md:space-y-0 md:space-x-2 rtl:md:space-x-reverse mt-4 md:mt-2">
+                    <div class="flowchart-step flex-1">۴. ترویج فروش</div>
+                    <div class="flowchart-arrow hidden md:block">&rarr;</div>
+                    <div class="flowchart-step flex-1">۵. توزیع</div>
+                    <div class="flowchart-arrow hidden md:block">&rarr;</div>
+                    <div class="flowchart-step flex-1">۶. روندها و وفاداری</div>
+                 </div>
+                 <div class="flex justify-center my-2 md:hidden"><span class="flowchart-arrow">&darr;</span></div>
+                 <div class="flex flex-col md:flex-row justify-center items-stretch space-y-4 md:space-y-0 md:space-x-2 rtl:md:space-x-reverse mt-4 md:mt-2">
+                    <div class="flowchart-step flex-1 md:max-w-xs">۷. سودآوری و آینده‌پژوهی</div>
+                </div>
+                <p class="mt-6 text-sm italic">این گام‌ها نشان‌دهنده یک فرآیند مداوم برای ساخت و تقویت برند هستند.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-[#06D6A0] text-white py-10 text-center">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl font-bold mb-4">طعم "حال خوب" را در فونساژ تجربه کنید!</h3>
+            <p class="text-lg mb-2">یزد، خیابان کاشانی، نرسیده به چهارراه فاطمیه (آدرس نمونه)</p>
+            <p class="text-lg">تلفن: ۰۳۵۱۲۳۴۵۶۷۸ (شماره نمونه)</p>
+        </div>
+    </footer>
+
+    <script>
+        const processLabel = (label, maxLength = 16) => {
+            if (label.length <= maxLength) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + ' ' + word).trim().length > maxLength && currentLine.length > 0) {
+                    lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            }
+            if (currentLine.length > 0) {
+                lines.push(currentLine.trim());
+            }
+            return lines;
+        };
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+
+        // Chart 1: Market Share
+        const marketShareCtx = document.getElementById('marketShareChart').getContext('2d');
+        new Chart(marketShareCtx, {
+            type: 'doughnut',
+            data: {
+                labels: [
+                    processLabel('شیرینی‌های سنتی یزد (رقبای غیرمستقیم)'), 
+                    processLabel('بوتیک‌های فرانسوی (رقبای مستقیم)'),
+                    processLabel('فونساژ (پتانسیل نیش مارکت)')
+                ],
+                datasets: [{
+                    label: 'سهم بازار (برداشت کلی)',
+                    data: [70, 15, 15], // Example data, adjusted for new competitor types
+                    backgroundColor: ['#FFD166', '#118AB2', '#FF6B6B'],
+                    borderColor: ['#FFF9F0', '#FFF9F0', '#FFF9F0'],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: { family: 'Vazirmatn' }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: { title: tooltipTitleCallback },
+                        bodyFont: { family: 'Vazirmatn' },
+                        titleFont: { family: 'Vazirmatn' }
+                    }
+                }
+            }
+        });
+
+        // Chart 2: Product Offerings
+        const productOfferingsCtx = document.getElementById('productOfferingsChart').getContext('2d');
+        new Chart(productOfferingsCtx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    processLabel('شیرینی فرانسوی (اصیل)'), 
+                    processLabel('شیر برنج (ارتقا یافته/تلفیقی)'), 
+                    processLabel('کیک‌های روز (خلاقانه/تلفیقی)'),
+                    processLabel('باقلوا/قطاب (سنتی)')
+                ],
+                datasets: [{
+                    label: 'فونساژ',
+                    data: [85, 90, 80, 20], // Fonçage offers some traditional too, but upgraded
+                    backgroundColor: '#FF6B6B',
+                    borderColor: '#FF6B6B',
+                    borderWidth: 1
+                }, {
+                    label: 'رقبای مستقیم (لامور/اپرا)',
+                    data: [95, 5, 40, 0], // Direct competitors focus on French
+                    backgroundColor: '#EF476F', // Another color from palette
+                    borderColor: '#EF476F',
+                    borderWidth: 1
+                },{
+                    label: 'رقبای غیرمستقیم (سنتی)',
+                    data: [0, 10, 30, 95], 
+                    backgroundColor: '#118AB2',
+                    borderColor: '#118AB2',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: { 
+                            font: { family: 'Vazirmatn' },
+                            callback: function(value) { return value + '%' }
+                        }
+                    },
+                    x: {
+                        ticks: { font: { family: 'Vazirmatn' }}
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: { font: { family: 'Vazirmatn' }}
+                    },
+                    tooltip: {
+                         callbacks: { title: tooltipTitleCallback },
+                         bodyFont: { family: 'Vazirmatn' },
+                         titleFont: { family: 'Vazirmatn' }
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
